@@ -37,3 +37,32 @@ def add_names(extract_name):                                                    
 def delete_doubles(president_name):                                                         ## Delete the doubles
     list_name = set(president_name)                                                         # Convert the list to a set to delete the doubles
     return list_name                                                                        # Return the set
+
+
+def create_folder():
+    newpath = './cleaned' 
+    if not os.path.exists(newpath):
+        os.makedirs(newpath)
+
+
+def create_file(files_name):
+    for i in range(len(files_name)):
+        create_new_file = open(f'./cleaned/{files_name[i]}', 'w')
+        create_new_file.close()
+
+
+def copy_text(files_name):
+    for i in range(len(files_name)):
+        original_file = open(f'./speeches-20231109/{files_name[i]}', 'r')
+        new_file = open(f'./cleaned/{files_name[i]}', 'w')
+        lines = original_file.readlines()
+        for line in lines:
+            for character in line:
+                if ord(character)>=65 and ord(character)<=90:
+                    character = chr(ord(character)+32)
+                print(character)
+#               new_file.write(character)
+
+  
+        original_file.close()
+        new_file.close()
