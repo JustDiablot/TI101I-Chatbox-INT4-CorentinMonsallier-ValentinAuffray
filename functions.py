@@ -39,30 +39,29 @@ def delete_doubles(president_name):                                             
     return list_name                                                                        # Return the set
 
 
-def create_folder():
+def create_folder():                                                                        ## Create a new folder for the "cleaned" files
     newpath = './cleaned' 
-    if not os.path.exists(newpath):
-        os.makedirs(newpath)
+    if not os.path.exists(newpath):                                                         # If the folder does not exist
+        os.makedirs(newpath)                                                                # Create the folder
 
 
-def create_file(files_name):
-    for i in range(len(files_name)):
-        create_new_file = open(f'./cleaned/{files_name[i]}', 'w')
-        create_new_file.close()
+def create_file(files_name):                                                                ## Create the "cleaned" files in the cleaned folder
+    for i in range(len(files_name)):                                                        # For each file in the original path
+        create_new_file = open(f'./cleaned/{files_name[i]}', 'w')                           # Create a new file in the cleaned folder
+        create_new_file.close()                                                             # Close the created file
 
 
-def copy_text(files_name):
-    for i in range(len(files_name)):
-        original_file = open(f'./speeches-20231109/{files_name[i]}', 'r')
-        new_file = open(f'./cleaned/{files_name[i]}', 'w')
-        lines = original_file.readlines()
-        for line in lines:
-            for character in line:
-                if ord(character)>=65 and ord(character)<=90:
-                    character = chr(ord(character)+32)
-                print(character)
-#               new_file.write(character)
-
-  
-        original_file.close()
-        new_file.close()
+def copy_text(files_name):                                                                  ## Clean the duplicated files
+    for i in range(len(files_name)):                                                        # For each file
+        original_file = open(f'./speeches-20231109/{files_name[i]}', 'r')                   # Open the original file
+        new_file = open(f'./cleaned/{files_name[i]}', 'w')                                  # Open the new file
+        lines = original_file.readlines()                                                   # Read all lines in a file
+        for line in lines:                                                                  # For each line of this file
+            for character in line:                                                          # For each character of each line of each file
+                if ord(character)>=65 and ord(character)<=90:                               # If the character is upper
+                    character = chr(ord(character)+32)                                      # Make it lower
+                elif (ord(character)>=21 and ord(character)<=47) or (ord(character)>=58 and ord(character)<=64) :   # If the character is a punctiation character
+                    character = chr(32)                                                     # Make this character a space
+                new_file.write(character)                                                   # Write the new file with the modified characters
+        original_file.close()                                                               # Close the original file
+        new_file.close()                                                                    # Close the new file

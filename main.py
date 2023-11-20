@@ -1,5 +1,5 @@
 import functions
-import tfidf
+import TFIDF
 
 directory = './speeches-20231109'
 files_name = functions.files_list(directory, '.txt')
@@ -12,6 +12,4 @@ functions.create_folder()
 functions.create_file(files_name)
 functions.copy_text(files_name)
 
-
-
-##print(tfidf.listing(files_name, 1))
+print(TFIDF.tf(files_name, 1, TFIDF.listing(files_name, 1)))
