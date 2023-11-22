@@ -1,5 +1,7 @@
 import functions
-import TFIDF
+import tfidf
+
+tf = {'mo1': 7, 'mo2': 2, 'mo3': 1, 'mo4': 3, 'mo5': 6, 'mo6': 4, 'mo7': 9, 'mo8': 5, 'mo9': 0.1 }
 
 directory = './speeches-20231109'
 files_name = functions.files_list(directory, '.txt')
@@ -12,4 +14,6 @@ functions.create_folder()
 functions.create_file(files_name)
 functions.copy_text(files_name)
 
-print(TFIDF.tf(files_name, 1, TFIDF.listing(files_name, 1)))
+ss = tfidf.listing(files_name, 1)
+tf = tfidf.tf(files_name, 1, ss)
+idf = tfidf.idf(tf)
