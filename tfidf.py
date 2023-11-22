@@ -12,14 +12,14 @@ def listing(files_name, i):
             l1.append(i)
     return set(l1)
 
-'''def tf(files_name, i,  listing):
+def tf(files_name, i,  listing):
     tf = {}
     with open(f'./speeches-20231109/{files_name[i]}', 'r') as f:
         for word in listing:
             tf[word] = 0
         for word in listing:
             [word] += 1
-        return tf'''
+        return tf
 
 def idf(tf):
     idf = dict(tf)
