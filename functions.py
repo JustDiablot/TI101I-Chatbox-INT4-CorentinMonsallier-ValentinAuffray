@@ -47,14 +47,14 @@ def create_folder():                                                            
 
 def create_file(files_name):                                                                                            ## Create the "cleaned" files in the cleaned folder
     for i in range(len(files_name)):                                                                                    # For each file in the original path
-        create_new_file = open(f'./cleaned/{files_name[i]}', 'w',encoding='utf8')                                                       # Create a new file in the cleaned folder
+        create_new_file = open(f'./cleaned/{files_name[i]}', 'w',encoding='utf8')                                       # Create a new file in the cleaned folder
         create_new_file.close()                                                                                         # Close the created file
 
 
 def copy_text(files_name):                                                                                              ## Clean the duplicated files
     for i in range(len(files_name)):                                                                                    # For each file
-        original_file = open(f'./speeches-20231109/{files_name[i]}', 'r',encoding='utf8')                                               # Open the original file
-        new_file = open(f'./cleaned/{files_name[i]}', 'w',encoding='utf8')                                                              # Open the new file
+        original_file = open(f'./speeches-20231109/{files_name[i]}', 'r',encoding='utf8')                               # Open the original file
+        new_file = open(f'./cleaned/{files_name[i]}', 'w',encoding='utf8')                                              # Open the new file
         lines = original_file.readlines()                                                                               # Read all lines in a file
         for line in lines:                                                                                              # For each line of this file
             for character in line:                                                                                      # For each character of each line of each file
