@@ -17,14 +17,14 @@ def tf(file_path):                                                              
     return tf                                                                                                           # Return the tf dictionary
 
 
-def idf(file_path):                                                                                                      ## Get the importance of each term
+def idf(file_path):                                                                                                     ## Get the importance of each term
     idf = {}
-    for file in os.listdir(file_path):
-        for key in tf(f'{file_path}/{file}').keys():
-            if key not in idf:
-                idf[key] = 1
-            else:
-                idf[key] += 1                                                                                           # Add to the value of the the count
+    for file in os.listdir(file_path):                                                                                  # For each file of the cleaned folder
+        for key in tf(f'{file_path}/{file}').keys():                                                                    # For each key of the tf function of each file
+            if key not in idf:                                                                                          # If the key is not in the idf dictionary
+                idf[key] = 1                                                                                            # Put the count to one
+            else:                                                                                                       # If the key is already in the dictionnary
+                idf[key] += 1                                                                                           # Add to the value of the the count 1
     for key in idf.keys():                                                                                              # For each word of the list
         idf[key] = math.log(8 / idf[key])                                                                               # Compute the logarithm of the inverse of the proportion of documents in the corpus that contain that word
     return(idf)                                                                                                         # Return the tdf dictionnary
