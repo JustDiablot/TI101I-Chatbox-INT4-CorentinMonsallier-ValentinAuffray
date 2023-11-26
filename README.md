@@ -23,14 +23,11 @@ The first part of the ChatBot project permits the user to copy the
 git clone https://github.com/JustDiablot/projetS1
 ```
 
-&nbsp;
-
 **Run the code**
 1. Locate the project in you command prompt:
 ```sh
 cd /.../TI101I-Chatbox-INT4-CorentinMonsallier-ValentinAuffray
 ```
-
 2. Run the `main.py` file:
 ```sh
 python main.py
