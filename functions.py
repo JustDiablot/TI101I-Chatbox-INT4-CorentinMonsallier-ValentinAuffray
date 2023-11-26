@@ -21,7 +21,7 @@ def get_names(files_name):                                                      
 
 
 def add_names(extract_name):                                                                                            ## Combine the first name and the last name
-    president_name = []
+    president_name = []                                                                                                 # Create a new list
     first_names = {'Chirac' : 'Jacques',
                    'Giscard dEstaing' : 'Valéry',
                    'Hollande' : 'François',

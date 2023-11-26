@@ -1,5 +1,4 @@
 import math
-import os
 
 def tf(file_path):                                                                                                      ## Look for the frequency of each word in a text
     file = open(file_path, 'r', encoding='utf-8')                                                                       # Opens a speech
@@ -26,23 +25,22 @@ def idf(file_path, files_name):                                                 
             else:                                                                                                       # If the key is already in the dictionnary
                 idf[key] += 1                                                                                           # Add to the value of the the count 1
     for key in idf.keys():                                                                                              # For each word of the list
-        idf[key] = math.log(8 / idf[key])                                                                               # Compute the logarithm of the inverse of the proportion of documents in the corpus that contain that word
+        idf[key] = math.log(len(files_name) / idf[key])                                                                 # Compute the logarithm of the inverse of the proportion of documents in the corpus that contain that word
     return(idf)                                                                                                         # Return the tdf dictionnary
 
 
-def tf_idf(file_path, files_name):
+def tf_idf(file_path, files_name):                                                                                      ## Create a matrix with the tf-idf vectors
     tf_idf = []
-    idf_dict = idf(file_path, files_name)
-    for key in idf_dict:
+    idf_dict = idf(file_path, files_name)                                                                               # Get the idf dictionnary
+    for key in idf_dict:                                                                                                # For each key
         temp = []
-        temp.append(key)
-        for file in files_name:
-            tf_dict = tf(f'{file_path}/{file}')
-            if key in tf_dict.keys():
-                val = idf_dict[key] * tf_dict[key]
-            elif key not in tf_dict.keys():
-                val = 0
-            temp.append(val)
-        tf_idf.append(temp)
-
-    return tf_idf
+        temp.append(key)                                                                                                # Add the key to the list of the list
+        for file in files_name:                                                                                         # For each file
+            tf_dict = tf(f'{file_path}/{file}')                                                                         # Get the tf dictionnary for the selected file
+            if key in tf_dict.keys():                                                                                   # If the idf key is in the tf dictionnary of the selected file
+                val = idf_dict[key] * tf_dict[key]                                                                      # Compute the tf-idf vector
+            elif key not in tf_dict.keys():                                                                             # If the idf key is not in the tf dictionnary of the selected file
+                val = 0                                                                                                 # Set the tf-idf vector to 0
+            temp.append(round(val, 2))                                                                                  # Add the tf-idf vector to the temporary list with a rounded vector
+        tf_idf.append(temp)                                                                                             # Add the temporary list to the matrix
+    return tf_idf                                                                                                       # Return the matrix
