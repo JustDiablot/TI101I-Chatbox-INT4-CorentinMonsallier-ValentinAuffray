@@ -17,10 +17,10 @@ def tf(file_path):                                                              
     return tf                                                                                                           # Return the tf dictionary
 
 
-def idf(file_path):                                                                                                     ## Get the importance of each term
+def idf(file_path, files_name):                                                                                         ## Get the importance of each term
     idf = {}
-    for file in os.listdir(file_path):                                                                                  # For each file of the cleaned folder
-        for key in tf(f'{file_path}/{file}').keys():                                                                    # For each key of the tf function of each file
+    for file in files_name:                                                                                             # For each file of the cleaned folder
+        for key in tf(f'{file_path}/{file}').keys():                                                                    # For each key of the tf function of each file)
             if key not in idf:                                                                                          # If the key is not in the idf dictionary
                 idf[key] = 1                                                                                            # Put the count to one
             else:                                                                                                       # If the key is already in the dictionnary
@@ -30,5 +30,19 @@ def idf(file_path):                                                             
     return(idf)                                                                                                         # Return the tdf dictionnary
 
 
-def tf_idf(directory):
-    pass
+def tf_idf(file_path, files_name):
+    tf_idf = []
+    idf_dict = idf(file_path, files_name)
+    for key in idf_dict:
+        temp = []
+        temp.append(key)
+        for file in files_name:
+            tf_dict = tf(f'{file_path}/{file}')
+            if key in tf_dict.keys():
+                val = idf_dict[key] * tf_dict[key]
+            elif key not in tf_dict.keys():
+                val = 0
+            temp.append(val)
+        tf_idf.append(temp)
+
+    return tf_idf
