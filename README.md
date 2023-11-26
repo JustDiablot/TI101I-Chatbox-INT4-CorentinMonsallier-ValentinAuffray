@@ -18,7 +18,7 @@ The first part of the ChatBot project permits the user to copy the
 
 ### Instructions for executing your code
 **Installation**
-1. Clone the TI101I-Chatbox-INT4-CorentinMonsallier-ValentinAuffray repository:
+Clone the TI101I-Chatbox-INT4-CorentinMonsallier-ValentinAuffray repository:
 ```sh
 git clone https://github.com/JustDiablot/projetS1
 ```
