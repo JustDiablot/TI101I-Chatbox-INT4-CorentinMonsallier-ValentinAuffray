@@ -2,17 +2,19 @@
 
 
 ### Names of the Team mebers
-Corentin Monsallier
-Valentin Auffray
+Corentin Monsallier @Telurion
+Valentin Auffray @JustDiablot
 
 
 ### Link to the Git Repository
 [TI101I-Chatbox-INT4-CorentinMonsallier-ValentinAuffray](https://github.com/JustDiablot/projetS1)
 
+&nbsp;
 
 ### Main functionalities of the code
 The first part of the ChatBot project permits the user to copy the 
 
+&nbsp;
 
 ### Instructions for executing your code
 **Installation**
@@ -20,6 +22,8 @@ The first part of the ChatBot project permits the user to copy the
 ```sh
 git clone https://github.com/JustDiablot/projetS1
 ```
+
+&nbsp;
 
 **Run the code**
 1. Locate the project in you command prompt:
