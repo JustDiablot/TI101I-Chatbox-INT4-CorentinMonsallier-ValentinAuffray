@@ -5,9 +5,10 @@ import features
 speeches = './speeches-20231109'
 cleaned = './cleaned'
 
+
 functions.create_folder()
-functions.create_file(functions.files_list(cleaned, '.txt'))
-functions.copy_text(functions.files_list(cleaned, '.txt'))
+functions.create_file(functions.files_list(speeches, '.txt'))
+functions.copy_text(functions.files_list(speeches, '.txt'))
 
 
 
