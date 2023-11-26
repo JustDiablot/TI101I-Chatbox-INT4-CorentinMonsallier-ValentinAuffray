@@ -2,14 +2,14 @@
 
 
 ### Names of the Team mebers
-Corentin Monsallier @Telurion
-Valentin Auffray @JustDiablot
+Corentin Monsallier
+Valentin Auffray
 
+&nbsp;
 
 ### Link to the Git Repository
 [TI101I-Chatbox-INT4-CorentinMonsallier-ValentinAuffray](https://github.com/JustDiablot/projetS1)
 
-&nbsp;
 
 ### Main functionalities of the code
 The first part of the ChatBot project permits the user to copy the 
