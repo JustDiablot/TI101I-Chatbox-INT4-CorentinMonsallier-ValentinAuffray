@@ -99,12 +99,30 @@ def multiple_research(x, y, files_name):                                        
 
 
 # Feature exercise 6
-def all_in(files_name):                                                                                                 ## Get all of the words that all of the president used. GET TH ALL IN !!! x)
-    l = []                                                                                                              # Initialize the list
-    dict = tfidf.idf(cleaned, files_name)                                                                               # Get the idf dictionnary
-    for key in dict:                                                                                                    # For each key in the idf dictionnary
-        if global_research(files_name, key) == global_research(files_name, 'messieurs'):                                # If the global research of the key is equal to the global research of the 'messieur'
-            l.append(key)                                                                                               # Add the key to the list
-    for i in unimportant(files_name):                                                                                   # For each unimportant word
-        l.remove(i)                                                                                                     # Remove the unimportant word from the list
-    return l                                                                                                            # Return the list
+def all_in(files_name, pres_names):
+    words = []
+    texts = []
+    dict = tfidf.idf(cleaned, files_name)
+    for name in set(pres_names):
+        for i in files_name:
+            if name in i:
+                file = open(f'{cleaned}/{files_name[i]}', 'r', encoding='utf8')
+                text = file.read()
+                fromage = tfidf.tf_text(text)
+            
+
+
+'''for name in range(len(pres_names)):
+    text = ''
+    print(name)
+    for i in range(len(files_name)):
+        if list(pres_names)[name] in files_name[i]:
+            file = open(f'{cleaned}/{files_name[i]}', 'r', encoding='utf8')
+            text += file.read() + ' '
+    fromage = tfidf.tf_text(text)
+    print(fromage)
+    if word[0] in fromage:
+        count += 1
+if count == 6 and word not in unimportant(files_name):
+    words.append(word)
+return words'''

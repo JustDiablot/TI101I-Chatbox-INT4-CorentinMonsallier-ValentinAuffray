@@ -53,7 +53,7 @@ def main():
         else:
             print('The first president to talk about', x, 'and', y, 'is :', features.multiple_research(x, y, functions.files_list(speeches, '.txt')))
     elif choice == 6:
-        print('The list of the word used in every speeches sont : ', features.all_in(functions.files_list(cleaned, '.txt')))
+        print('The list of the word used in every speeches sont : ', features.all_in(functions.files_list(cleaned, '.txt'), functions.get_names(functions.files_list(cleaned, '.txt'))))
 
     elif choice == 7:
         print('GoodBye !')

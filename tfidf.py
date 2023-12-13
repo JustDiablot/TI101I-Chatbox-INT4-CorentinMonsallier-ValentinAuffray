@@ -16,6 +16,20 @@ def tf(file_path):                                                              
     return tf                                                                                                           # Return the tf dictionary
 
 
+def tf_text(text):
+    tf = {}
+    list = []
+    for line in text:                                                                                                  # For each line of this file
+        for i in line.split():                                                                                          # For each word of each line
+            list.append(i)                                                                                              # Add it to a list
+    for word in list:                                                                                                   # For each word of the list
+        if word not in tf:                                                                                              # If the word is not in the tf dictionnary
+            tf[word] = 1                                                                                                # Add it with a value of 1
+        else:                                                                                                           # If the word is already in the dictionnary
+            tf[word] += 1                                                                                               # Add to the value of the count 1
+    return tf                                                                                                           # Return the tf dictionary
+
+
 def idf(file_path, files_name):                                                                                         ## Get the importance of each term
     idf = {}
     for file in files_name:                                                                                             # For each file of the cleaned folder
