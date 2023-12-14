@@ -22,3 +22,5 @@ def idd(lQ):                    #identification (list question)
     for i in len(lQ):
         if lQ[i] not in tfidf.idf(functions.files_list(cleaned, '.txt')):
             lQ.remove(lQ[i])
+    return lQ
+

@@ -42,7 +42,10 @@ def delete_doubles(president_name):                                             
 def create_folder():                                                                                                    ## Create a new folder for the "cleaned" files
     newpath = './cleaned' 
     if not os.path.exists(newpath):                                                                                     # If the folder does not exist
-        os.makedirs(newpath)                                                                                            # Create the folder
+        os.makedirs(newpath) 
+    newpath = './full' 
+    if not os.path.exists(newpath):                                                                                     # If the folder does not exist
+        os.makedirs(newpath)                                                                                           # Create the folder
 
 
 def create_file(files_name):                                                                                            ## Create the "cleaned" files in the cleaned folder
@@ -65,3 +68,14 @@ def copy_text(files_name):                                                      
                 new_file.write(character)                                                                               # Write the new file with the modified characters
         original_file.close()                                                                                           # Close the original file
         new_file.close()                                                                                                # Close the new file
+
+def total_file(files_name):
+    full = open(f'./full/full.txt', 'w',encoding='utf8')
+    for i in range(len(files_name)):
+        original_file = open(f'./cleaned/{files_name[i]}', 'r',encoding='utf8')
+        lines = original_file.readlines()
+        for line in lines:
+            for character in line:
+                full.write(character)
+        original_file.close()
+    full.close()
