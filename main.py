@@ -1,5 +1,6 @@
 import functions
 import features
+import tfidf
 
 
 speeches = './speeches-20231109'
@@ -75,7 +76,6 @@ def main():
     else:
         print('error in the process\n')
     return
-
 
 if __name__ == '__main__':
     print('\t\t\t\t\tWelcome into our first chatbot \n\n')

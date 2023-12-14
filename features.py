@@ -101,15 +101,22 @@ def multiple_research(x, y, files_name):                                        
 # Feature exercise 6
 def all_in(files_name, pres_names):
     words = []
-    texts = []
     dict = tfidf.idf(cleaned, files_name)
-    for name in set(pres_names):
-        for i in files_name:
-            if name in i:
-                file = open(f'{cleaned}/{files_name[i]}', 'r', encoding='utf8')
-                text = file.read()
+    for elem in dict:
+        count = 0
+        if elem not in unimportant(files_name):
+            for name in set(pres_names):
+                text = ''
+                for i in files_name:
+                    if name in i:
+                        file = open(f'{cleaned}/{i}', 'r', encoding='utf8')
+                        text += file.read() + ''
                 fromage = tfidf.tf_text(text)
-            
+                if elem in fromage:
+                    count += 1
+        if count == 6:
+            words.append(elem)
+    return words
 
 
 '''for name in range(len(pres_names)):

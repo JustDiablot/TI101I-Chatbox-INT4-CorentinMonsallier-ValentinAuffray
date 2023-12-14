@@ -18,10 +18,9 @@ def tf(file_path):                                                              
 
 def tf_text(text):
     tf = {}
-    list = []
-    for line in text:                                                                                                  # For each line of this file
-        for i in line.split():                                                                                          # For each word of each line
-            list.append(i)                                                                                              # Add it to a list
+    list = []                                                                                               # For each line of this file
+    for i in text.split():                                                                                          # For each word of each line
+        list.append(i)                                                                                              # Add it to a list
     for word in list:                                                                                                   # For each word of the list
         if word not in tf:                                                                                              # If the word is not in the tf dictionnary
             tf[word] = 1                                                                                                # Add it with a value of 1
