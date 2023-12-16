@@ -104,10 +104,8 @@ def all_in(files_name, pres_names):
     words = []
     dict = tfidf.idf(cleaned, files_name)
     for elem in dict:
-        print('hihihiha')
         count = 0
         for name in set(pres_names):
-            print('_______')
             text = ''
             for i in files_name:
                 if name in i:
@@ -119,19 +117,3 @@ def all_in(files_name, pres_names):
         if count == 6 and elem not in unimportant_word:
             words.append(elem)
     return words
-
-
-'''for name in range(len(pres_names)):
-    text = ''
-    print(name)
-    for i in range(len(files_name)):
-        if list(pres_names)[name] in files_name[i]:
-            file = open(f'{cleaned}/{files_name[i]}', 'r', encoding='utf8')
-            text += file.read() + ' '
-    fromage = tfidf.tf_text(text)
-    print(fromage)
-    if word[0] in fromage:
-        count += 1
-if count == 6 and word not in unimportant(files_name):
-    words.append(word)
-return words'''

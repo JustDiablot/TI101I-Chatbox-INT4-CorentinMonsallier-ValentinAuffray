@@ -41,7 +41,6 @@ def idf(file_path, files_name):                                                 
         idf[key] = math.log(len(files_name) / idf[key])                                                                 # Compute the logarithm of the inverse of the proportion of documents in the corpus that contain that word
     return(idf)                                                                                                         # Return the tdf dictionnary
 
-
 def tf_idf(file_path, files_name):                                                                                      ## Create a matrix with the tf-idf vectors
     tf_idf = []
     idf_dict = idf(file_path, files_name)                                                                               # Get the idf dictionnary
