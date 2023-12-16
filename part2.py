@@ -23,15 +23,15 @@ def question_list(nc):                     #list question (cleaned question)
 
 
 ### 2. ###
-def idf(file_path, files_name):
-    pass
-
-
-
 def idd(lQ, files_name):                    #identification (list question)
+    list = []
     for i in range(len(lQ)):
-        if lQ[i] not in tfidf.idf(functions.files_list(cleaned, '.txt'), files_name):
-            lQ.remove(lQ[i])
-    return lQ
+        if lQ[i] in tfidf.idf(cleaned, files_name):
+            list.append(lQ[i])
+    return list
 
-print(idd(question_list("BOnJouR cherS, ConcitOYEnS"), functions.files_list(cleaned, '.txt')))
+
+### 3. ###
+
+
+print(idd(question_list("BOnJouR cherS, ConcitOYEnS je nation, mesdames"), functions.files_list(cleaned, '.txt')))
