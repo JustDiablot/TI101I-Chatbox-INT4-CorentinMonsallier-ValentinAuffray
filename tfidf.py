@@ -1,5 +1,6 @@
 import math
 
+
 def tf(file_path):                                                                                                      ## Look for the frequency of each word in a text
     file = open(file_path, 'r', encoding='utf-8')                                                                       # Opens a speech
     tf = {}
@@ -14,7 +15,6 @@ def tf(file_path):                                                              
         else:                                                                                                           # If the word is already in the dictionnary
             tf[word] += 1                                                                                               # Add to the value of the count 1
     return tf                                                                                                           # Return the tf dictionary
-
 
 def tf_text(text):
     tf = {}
