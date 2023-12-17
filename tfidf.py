@@ -1,4 +1,5 @@
 import math
+import functions #
 
 
 def tf(file_path):                                                                                                      ## Look for the frequency of each word in a text
@@ -29,8 +30,18 @@ def tf_text(text):
     return tf                                                                                                           # Return the tf dictionary
 
 
-def idf(file_path, files_name):                                                                                         ## Get the importance of each term
-    idf = {}
+def tf_list(list):
+    tf = {}
+    for word in list:
+        if word not in tf:
+            tf[word] = 1
+        else:
+            tf[word] += 1
+    return tf
+
+
+def idf(file_path, files_name, list=[]):                                                                                         ## Get the importance of each term
+    idf = {}                                                                                                 # If the list is empty
     for file in files_name:                                                                                             # For each file of the cleaned folder
         for key in tf(f'{file_path}/{file}').keys():                                                                    # For each key of the tf function of each file)
             if key not in idf:                                                                                          # If the key is not in the idf dictionary
@@ -39,7 +50,9 @@ def idf(file_path, files_name):                                                 
                 idf[key] += 1                                                                                           # Add to the value of the the count 1
     for key in idf.keys():                                                                                              # For each word of the list
         idf[key] = math.log(len(files_name) / idf[key])                                                                 # Compute the logarithm of the inverse of the proportion of documents in the corpus that contain that word
-    return(idf)                                                                                                         # Return the tdf dictionnary
+    return idf     
+print(idf("./cleaned", functions.files_list("./cleaned", ".txt"), ['bonjour', 'mes', 'chers']))
+                                                                                                    # Return the tdf dictionnary
 
 def tf_idf(file_path, files_name):                                                                                      ## Create a matrix with the tf-idf vectors
     tf_idf = []
