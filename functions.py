@@ -11,12 +11,12 @@ def files_list(directory, ext):                                                 
 
 def get_names(files_name):                                                                                              ## Get the name of each president from the list with the names of each file
     extract_name = []
-    deleted_characters = ["Nomination_", "1", "2", '.txt']                                                              # List with each character that we want to delete
+    deleted_characters = ['Nomination_', '1', '2', '.txt']                                                              # List with each character that we want to delete
     for _ in range(len(files_name)):                                                                                    # For each position in the list of the names of the files
         extract_name.append(files_name[_])                                                                              # Add to a new list each string
     for i in range(len(extract_name)):                                                                                  # For each string in the new list
         for j in range(len(deleted_characters)):                                                                        # For each unwanted character
-            extract_name[i] = extract_name[i].replace(deleted_characters[j], "")                                        # Delete the unwanted character in each string
+            extract_name[i] = extract_name[i].replace(deleted_characters[j], '')                                        # Delete the unwanted character in each string
     return extract_name                                                                                                 # Return the list
 
 
@@ -39,7 +39,7 @@ def delete_doubles(president_name):                                             
     return list_name                                                                                                    # Return the set
 
 
-def create_folder():                                                                                                    ## Create a new folder for the "cleaned" files
+def create_folder():                                                                                                    ## Create a new folder for the 'cleaned' files
     newpath = './cleaned' 
     if not os.path.exists(newpath):                                                                                     # If the folder does not exist
         os.makedirs(newpath) 
@@ -48,7 +48,7 @@ def create_folder():                                                            
         os.makedirs(newpath)                                                                                           # Create the folder
 
 
-def create_file(files_name):                                                                                            ## Create the "cleaned" files in the cleaned folder
+def create_file(files_name):                                                                                            ## Create the 'cleaned' files in the cleaned folder
     for i in range(len(files_name)):                                                                                    # For each file in the original path
         create_new_file = open(f'./cleaned/{files_name[i]}', 'w',encoding='utf8')                                       # Create a new file in the cleaned folder
         create_new_file.close()                                                                                         # Close the created file

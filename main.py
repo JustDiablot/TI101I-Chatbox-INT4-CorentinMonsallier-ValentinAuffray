@@ -10,6 +10,7 @@ cleaned = './cleaned'
 functions.create_folder()
 functions.create_file(functions.files_list(speeches, '.txt'))
 functions.copy_text(functions.files_list(speeches, '.txt'))
+functions.total_file(functions.files_list(cleaned, '.txt'))
 
 
 
@@ -32,7 +33,7 @@ def main():
         pres_name = input().capitalize()
         while pres_name not in namelist:
             pres_name = input('\t\tMust be one of these names : Chirac, Giscard dEstaing, Hollande, Macron, Mitterrand, Sarkozy : ')
-        print('The word(s) that have been the most used by', pres_name, ' is : ',features.most_repeat(functions.files_list(cleaned, '.txt'), pres_name))
+        print('The word(s) that have been the most used by', pres_name, ' is : ', features.most_repeat(functions.files_list(cleaned, '.txt'), pres_name))
 
     elif choice == 4:
         pass 

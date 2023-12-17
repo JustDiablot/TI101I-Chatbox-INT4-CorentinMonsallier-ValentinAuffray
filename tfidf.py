@@ -40,7 +40,7 @@ def tf_list(list):
     return tf
 
 
-def idf(file_path, files_name, list=[]):                                                                                         ## Get the importance of each term
+def idf(file_path, files_name):                                                                                         ## Get the importance of each term
     idf = {}                                                                                                 # If the list is empty
     for file in files_name:                                                                                             # For each file of the cleaned folder
         for key in tf(f'{file_path}/{file}').keys():                                                                    # For each key of the tf function of each file)
@@ -51,8 +51,7 @@ def idf(file_path, files_name, list=[]):                                        
     for key in idf.keys():                                                                                              # For each word of the list
         idf[key] = math.log(len(files_name) / idf[key])                                                                 # Compute the logarithm of the inverse of the proportion of documents in the corpus that contain that word
     return idf     
-print(idf("./cleaned", functions.files_list("./cleaned", ".txt"), ['bonjour', 'mes', 'chers']))
-                                                                                                    # Return the tdf dictionnary
+
 
 def tf_idf(file_path, files_name):                                                                                      ## Create a matrix with the tf-idf vectors
     tf_idf = []

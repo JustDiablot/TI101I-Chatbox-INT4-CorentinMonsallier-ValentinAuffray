@@ -1,5 +1,6 @@
 import tfidf
 import functions
+import math
 
 cleaned = './cleaned'
 
@@ -34,23 +35,35 @@ def idd(lQ, files_name):                    #identification (list question)
 
 ### 3. ###
 def vector(list, files_name):
+    vector = []
     words = list
     tf = tfidf.tf_list(words)
-    matrix = tfidf.tf_idf(cleaned, files_name)
-    for word in matrix:                                                                     # Si mot pas dans question
-        if word[0] not in tf:
-            for i in range(1, len(word)):
-                word[i] = 0
-    vector = [[matrix[j][i] for j in range(len(matrix))] for i in range(len(matrix[0]))]    # Transpose the matrix
+    idf_dic = tfidf.idf(cleaned, files_name)
+    for word in words:
+        vector.append([word, idf_dic[word]*tf[word]])
     return vector
 
 
 ### 4. ###
+def dot(A, B):
+    f = open('./full/full.txt', 'r') 
+    for i in range(len(set(f.read()))):
+        res +=  A[i]*B[i]
+    return res
+
+def norm(A):
+    summ = 0
+    for j in range(1, len(A)):
+        summ += A[j] ** 2
+    return math.sqrt(summ)
+
+def similarity(a, b):
+
+    return dot(a, b)/(norm(a)*norm(b))
 
 
 
 
-
-#print(idd(question_list("BOnjOUR,  , mes Chers amis et cobncit concitoyens citoyens"), functions.files_list(cleaned, '.txt'))) ### Identification des mots dans tf_idf
-print(vector(idd(question_list("BOnjOUR,  , mes Chers amis et cobncit concitoyens citoyens"), functions.files_list(cleaned, '.txt')), functions.files_list(cleaned, '.txt')))
-#idd(question_list("BOnjOUR,  , mes Chers amis et cobncit concitoyens citoyens"), functions.files_list(cleaned, '.txt')))
+#print(idd(question_list('BOnjOUR,  , mes Chers amis et cobncit concitoyens citoyens'), functions.files_list(cleaned, '.txt'))) ### Identification des mots dans tf_idf
+print(vector(idd(question_list('BOnjOUR,  , mes Chers amis et cobncit concitoyens citoyens'), functions.files_list(cleaned, '.txt')), functions.files_list(cleaned, '.txt')))
+#idd(question_list('BOnjOUR,  , mes Chers amis et cobncit concitoyens citoyens'), functions.files_list(cleaned, '.txt')))
