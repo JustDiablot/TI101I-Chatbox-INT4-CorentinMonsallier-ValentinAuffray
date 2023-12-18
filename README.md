@@ -2,8 +2,7 @@
 
 
 ### Names of the Team mebers
-Corentin Monsallier
-Valentin Auffray
+Corentin Monsallier&nbsp;Valentin Auffray
 
 &nbsp;
 
@@ -13,13 +12,14 @@ Valentin Auffray
 
 ### Main functionalities of the code
 The first part of the ChatBot project permits the user to :
-1 - Display the list of least important words in the document corpus
-2 - Display the word(s) with the highest TD-IDF score
-3 - Indicate the most repeated word(s) by a chosen President
-4 - Indicate the name(s) of the president(s) who spoke of a chosen word and the one who repeated it the most times.
-5 - Identify the first president to talk about two chosen words (if in the same speech)
-6 - List of the words that have been used by alle the presidents
-7 - Quit
+1. Display the list of least important words in the document corpus
+2. Display the word(s) with the highest TD-IDF score
+3. Indicate the most repeated word(s) by a chosen President
+4. Indicate the name(s) of the president(s) who spoke of a chosen word and the one who repeated it the most times.
+5. Identify the first president to talk about two chosen words (if in the same speech)
+6. List of the words that have been used by alle the presidents
+7. Discuss with the chatbot
+8. Quit
 
 &nbsp;
 
