@@ -6,8 +6,7 @@ def files_list(directory, ext):                                                 
     for filename in os.listdir(directory):                                                                              # For each files in the folder
         if filename.endswith(ext):                                                                                      # Only if it end by '.txt'
             files_name.append(filename)                                                                                 # Add the name of the file into the list files_name
-    return files_name                                                                                                   # Return the list
-
+    return files_name
 
 def get_names(files_name):                                                                                              ## Get the name of each president from the list with the names of each file
     extract_name = []
@@ -42,10 +41,7 @@ def delete_doubles(president_name):                                             
 def create_folder():                                                                                                    ## Create a new folder for the 'cleaned' files
     newpath = './cleaned' 
     if not os.path.exists(newpath):                                                                                     # If the folder does not exist
-        os.makedirs(newpath) 
-    newpath = './full' 
-    if not os.path.exists(newpath):                                                                                     # If the folder does not exist
-        os.makedirs(newpath)                                                                                           # Create the folder
+        os.makedirs(newpath)                                                                                       # Create the folder
 
 
 def create_file(files_name):                                                                                            ## Create the 'cleaned' files in the cleaned folder

@@ -67,4 +67,4 @@ def tf_idf(file_path, files_name):                                              
                 val = 0                                                                                                 # Set the tf-idf vector to 0
             temp.append(round(val, 2))                                                                                  # Add the tf-idf vector to the temporary list with a rounded vector
         tf_idf.append(temp)                                                                                             # Add the temporary list to the matrix
-    return tf_idf                                                                                                       # Return the matrix
+    return tf_idf
