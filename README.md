@@ -2,7 +2,7 @@
 
 
 ### Names of the Team mebers
-Corentin Monsallier&nbsp;Valentin Auffray
+Corentin Monsallier et Valentin Auffray
 
 &nbsp;
 
