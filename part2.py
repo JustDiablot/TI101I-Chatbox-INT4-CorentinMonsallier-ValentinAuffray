@@ -123,7 +123,7 @@ def  result(question, answer):                                                  
     for i in question_starters:
         string = ""
         if question.startswith(i):                                                                              # If the question starts with the key, return the corresponding value
-            answer = question_starters[i] + answer.lower()
+            answer = question_starters[i] + answer
             final_answer = list(answer)
             if "\n" in final_answer:                                                                            # Concatenate each leter and remove the newline
                 final_answer.remove("\n")

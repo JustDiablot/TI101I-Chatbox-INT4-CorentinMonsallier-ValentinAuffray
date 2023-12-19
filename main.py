@@ -61,7 +61,7 @@ def main():
         print('The list of the word used in every speeches sont : ', features.all_in(functions.files_list(cleaned, '.txt'), functions.get_names(functions.files_list(cleaned, '.txt'))))
 
     elif choice == 7:
-        question = input('Please ask your question : ')
+        question = input('Please ask your question (in french) : ')
         print(part2.result(question, part2.answer(question, cleaned, functions.files_list(cleaned, ".txt"))))
 
     elif choice == 8:
