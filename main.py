@@ -35,7 +35,6 @@ def main():
         print('The word(s) that have been the most used by', pres_name, ' is : ', features.most_repeat(functions.files_list(cleaned, '.txt'), pres_name))
 
     elif choice == 4:
-        pass 
         print('\tEnter the word you want to look for : (a single word, without ponctuation)')
         research = input().lower()
         if len(features.unique_research(functions.files_list(cleaned, '.txt'), research)) > 1:
